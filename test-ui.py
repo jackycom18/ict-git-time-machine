@@ -2,7 +2,7 @@ from playwright.sync_api import sync_playwright
 
 
 def main() -> None:
-    """功能：验证微信聊天界面能够加载并显示两条初始消息。输入：无。输出：无，断言失败时抛出异常。"""
+    """功能：验证聊天界面、自动消息播放和输入状态。输入：无。输出：无，断言失败时抛出异常。"""
     errors: list[str] = []
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(channel="msedge", headless=True)
@@ -16,6 +16,12 @@ def main() -> None:
         assert "rgb(149, 236, 105)" in page.locator(".bubble.me").first.evaluate(
             "element => getComputedStyle(element).backgroundColor"
         ).lower()
+        page.wait_for_selector(".typing", timeout=5000)
+        page.wait_for_function(
+            "document.querySelectorAll('.bubble').length >= 4",
+            timeout=12000,
+        )
+        assert page.locator(".bubble").count() >= 4
         assert not errors, "page errors: " + "; ".join(errors)
         browser.close()
 
