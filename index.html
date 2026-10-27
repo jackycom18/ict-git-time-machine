@@ -128,6 +128,10 @@
       padding: 0 15px;
       border-bottom: 1px solid var(--line);
       background: rgba(244, 245, 246, .94);
+      border-radius: 0 0 18px 18px;
+      box-shadow:
+        0 10px 26px rgba(34, 211, 238, .12),
+        inset 0 -1px 0 rgba(56, 248, 255, .24);
       backdrop-filter: blur(16px);
     }
 
@@ -238,7 +242,11 @@
     }
 
     .bubble.me {
-      background: var(--wechat-green);
+      color: #062a2f;
+      background: linear-gradient(135deg, #38f9d7 0%, #43e97b 42%, #38bdf8 74%, #a855f7 110%);
+      box-shadow:
+        0 6px 18px rgba(56, 189, 248, .24),
+        0 0 24px rgba(168, 85, 247, .12);
     }
 
     .bubble::before {

@@ -13,9 +13,12 @@ def main() -> None:
         assert page.title() == "码道小助手"
         assert page.locator(".bubble").count() == 2
         assert page.locator(".bubble.me").count() == 1
-        assert "rgb(149, 236, 105)" in page.locator(".bubble.me").first.evaluate(
-            "element => getComputedStyle(element).backgroundColor"
+        assert "linear-gradient" in page.locator(".bubble.me").first.evaluate(
+            "element => getComputedStyle(element).backgroundImage"
         ).lower()
+        assert page.locator(".topbar").evaluate(
+            "element => getComputedStyle(element).boxShadow"
+        ) != "none"
         page.wait_for_selector(".typing", timeout=5000)
         typing_label = page.locator(".typing-label")
         assert typing_label.inner_text() == "对方正在输入"
