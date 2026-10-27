@@ -15,8 +15,10 @@
 - 已完成：v1 静态界面、v2 自动播放、v3 细节优化。
 - 已完成：红色气泡改坏未提交并回退，main 保持绿色 v3。
 - 已完成：`feat-neon` 分支和霓虹主题提交。
-- 正在进行：远程分支、合并请求和 1.4 练手提交准备。
-- 下一步：推送 `main` 与 `feat-neon`，创建合并请求。
+- 已完成：推送 `main` 与 `feat-neon`，创建合并请求。
+- 远程仓库：https://github.com/jackycom18/ict-git-time-machine
+- 合并请求：https://github.com/jackycom18/ict-git-time-machine/pull/1
+- 下一步：如需计入正式赛题分数，再提交 1.4 赛题作品。
 
 ## 需求与约定
 
@@ -27,8 +29,8 @@
 
 ## 待办 / 已知问题
 
-- [ ] 推送个人仓库的 main 和 feat-neon 分支。
-- [ ] 创建 feat-neon → main 的合并请求。
+- [x] 推送个人仓库的 main 和 feat-neon 分支。
+- [x] 创建 feat-neon → main 的合并请求。
 - [ ] 提交 1.4 练手活动。
 
 ## 版本历史
