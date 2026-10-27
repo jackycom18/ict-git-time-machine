@@ -17,6 +17,17 @@ def main() -> None:
             "element => getComputedStyle(element).backgroundColor"
         ).lower()
         page.wait_for_selector(".typing", timeout=5000)
+        typing_label = page.locator(".typing-label")
+        assert typing_label.inner_text() == "对方正在输入"
+        assert "rgb(37, 132, 68)" in typing_label.evaluate(
+            "element => getComputedStyle(element).color"
+        )
+        assert page.locator(".bubble").first.evaluate(
+            "element => getComputedStyle(element, '::before').content"
+        ) == '""'
+        assert page.locator(".time-pill").evaluate(
+            "element => getComputedStyle(element).borderRadius"
+        ) != "0px"
         page.wait_for_function(
             "document.querySelectorAll('.bubble').length >= 4",
             timeout=12000,
